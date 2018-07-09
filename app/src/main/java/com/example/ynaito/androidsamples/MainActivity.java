@@ -44,3 +44,12 @@ public class MainActivity extends AppCompatActivity {
         return null;
     }
 }
+
+
+//参考にさせていただいたサイト
+// https://stackoverflow.com/questions/2801116/converting-a-view-to-bitmap-without-displaying-it-in-android/3036736#3036736
+// https://qiita.com/kobakei/items/229d0ef78148dce9d84b
+// http://blog.lciel.jp/blog/2013/12/16/android-capture-view-image/
+
+//inflatorについて
+// http://tiro105.hateblo.jp/entry/2014/04/20/222353
