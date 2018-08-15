@@ -5,6 +5,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.database.Cursor;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private String TAG = MainActivity.class.getSimpleName();
 
     private DownloadManager mDownloadManager;
+    private long downloadId;
 
     BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         private String TAG = BroadcastReceiver.class.getSimpleName();
@@ -25,8 +27,44 @@ public class MainActivity extends AppCompatActivity {
         public void onReceive(Context context, Intent intent) {
             Log.d(TAG,"onReceive");
             String action = intent.getAction();
+            if (action == null) {
+                return;
+            }
             if (action.equals(DownloadManager.ACTION_DOWNLOAD_COMPLETE)) {
                 Log.d(TAG, "DOWNLOAD COMPLETE");
+
+                DownloadManager.Query query = new DownloadManager.Query();
+                query.setFilterById(downloadId);
+                Cursor cursor = mDownloadManager.query(query);
+
+                if (cursor == null || !cursor.moveToFirst()) {
+                    Log.e(TAG, "Unable to find record: downloadId=" + downloadId + " setStatus DOWNLOAD_STATUS_FAILED");
+                    return;
+                }
+
+                int status = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_STATUS));
+                String scrUrl = cursor.getString(cursor.getColumnIndex(DownloadManager.COLUMN_URI));
+                String localPath = cursor.getString(cursor.getColumnIndex(DownloadManager.COLUMN_LOCAL_URI));
+                String statusStr = "";
+                switch (status) {
+                    case DownloadManager.STATUS_FAILED:
+                        statusStr = "STATUS_FAILED";
+                        break;
+                    case DownloadManager.STATUS_PAUSED:
+                        statusStr = "STATUS_PAUSED";
+                        break;
+                    case DownloadManager.STATUS_PENDING:
+                        statusStr = "STATUS_PENDING";
+                        break;
+                    case DownloadManager.STATUS_RUNNING:
+                        statusStr = "STATUS_RUNNING";
+                        break;
+                    case DownloadManager.STATUS_SUCCESSFUL:
+                        statusStr = "STATUS_SUCCESSFUL";
+                        break;
+                }
+                Log.d(TAG, "status=" + statusStr + " url=" + scrUrl + " localPath=" + localPath);
+
             } else {
                 Log.d(TAG, "DOWNLOAD NOT COMPLETE. ACTION " + action);
             }
@@ -53,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
         Uri destPathUri = Uri.fromFile(movieDir);
         destPathUri = Uri.withAppendedPath(destPathUri, "/" + filename);
 
-        enqueueDownloadRequest(srcUri, destPathUri, null, "hoge");
+        downloadId = enqueueDownloadRequest(srcUri, destPathUri, null, "hoge");
     }
 
 
