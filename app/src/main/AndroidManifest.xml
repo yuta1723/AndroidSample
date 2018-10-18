@@ -16,6 +16,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+        <!--SCREEN_OFFはManifestへ記述しても受け取れない。-->
+        <!--<receiver android:name=".SleepBroadCastReceiver">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.SCREEN_OFF" />-->
+            <!--</intent-filter>-->
+        <!--</receiver>-->
     </application>
 
 </manifest>
