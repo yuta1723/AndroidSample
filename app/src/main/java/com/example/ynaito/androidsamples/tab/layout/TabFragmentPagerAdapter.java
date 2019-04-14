@@ -1,10 +1,13 @@
-package com.example.ynaito.androidsamples;
+package com.example.ynaito.androidsamples.tab.layout;
 
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.util.Log;
+
+import com.example.ynaito.androidsamples.Main1Fragment;
+import com.example.ynaito.androidsamples.Main2Fragment;
 
 public class TabFragmentPagerAdapter extends FragmentPagerAdapter {
     private String TAG = TabFragmentPagerAdapter.class.getSimpleName();
