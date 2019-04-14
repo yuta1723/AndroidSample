@@ -21,3 +21,7 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
     }
 }
+
+
+// 参考
+// https://qiita.com/PiyoMoasa/items/a0282483831b5993da02
