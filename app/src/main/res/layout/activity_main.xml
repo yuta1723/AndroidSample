@@ -16,7 +16,8 @@
         android:theme="?attr/actionBarTheme"
         app:title="Tab Sample" />
 
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/relative_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -32,5 +33,5 @@
             android:id="@+id/viewPager"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
-    </LinearLayout>
+    </RelativeLayout>
 </LinearLayout>
