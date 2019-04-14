@@ -1,2 +1,2 @@
 # AndroidSamples
-Androidの実装のサンプルをブランチで分けて実装する。
+yuta1723が Androidの開発を行うにあたって作成したサンプルを管理しています。
