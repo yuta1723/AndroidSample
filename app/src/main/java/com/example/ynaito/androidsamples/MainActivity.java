@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         TabLayout tabLayout = findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(viewPager);
 
-        switchTabLayout(tabLayout,RelativeLayout.ALIGN_PARENT_BOTTOM);
+//        switchTabLayout(tabLayout,RelativeLayout.ALIGN_PARENT_BOTTOM);
 
         // タブの追加方法
 //        tabLayout.addTab(tabLayout.newTab().setText("Tab 1"));
@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 //        tabLayout.addTab(tabLayout.newTab().setText("Tab 3"));
     }
 
+    // 下付きかうえ付きかを変更
     private void switchTabLayout(TabLayout tabLayout, int attribute) {
         Log.d(TAG,"switchTabLayout");
         if (tabLayout == null) {
