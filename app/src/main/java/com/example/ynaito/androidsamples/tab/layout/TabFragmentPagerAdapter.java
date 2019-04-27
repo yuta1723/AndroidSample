@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.util.Log;
 
-import com.example.ynaito.androidsamples.fragments.Main1Fragment;
+import com.example.ynaito.androidsamples.fragments.ButtomSheetFragment;
 import com.example.ynaito.androidsamples.fragments.Main2Fragment;
 
 public class TabFragmentPagerAdapter extends FragmentPagerAdapter {
@@ -35,7 +35,7 @@ public class TabFragmentPagerAdapter extends FragmentPagerAdapter {
         Log.d(TAG, "getItem");
         switch (i) {
             case 0:
-                return new Main1Fragment();
+                return new ButtomSheetFragment();
             case 1:
                 return new Main2Fragment();
             default:
