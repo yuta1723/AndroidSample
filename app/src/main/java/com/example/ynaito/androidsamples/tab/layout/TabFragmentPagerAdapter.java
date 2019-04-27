@@ -6,8 +6,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.util.Log;
 
-import com.example.ynaito.androidsamples.Main1Fragment;
-import com.example.ynaito.androidsamples.Main2Fragment;
+import com.example.ynaito.androidsamples.fragments.Main1Fragment;
+import com.example.ynaito.androidsamples.fragments.Main2Fragment;
 
 public class TabFragmentPagerAdapter extends FragmentPagerAdapter {
     private String TAG = TabFragmentPagerAdapter.class.getSimpleName();
